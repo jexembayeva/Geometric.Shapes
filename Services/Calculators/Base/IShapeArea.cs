@@ -1,4 +1,4 @@
-﻿namespace Services.Calculators
+﻿namespace Services.Calculators.Base
 {
     public interface IShapeArea
     {

@@ -2,7 +2,7 @@
 using Utils.Enums;
 using Utils.Exceptions;
 
-namespace Services.Calculators
+namespace Services.Calculators.Base
 {
     public class ShapeArea : IShapeArea
     {
