@@ -36,22 +36,6 @@ namespace Utils.Helpers
             }
         }
 
-        public static void ThrowIfNullOrEmpty<T>(this IReadOnlyCollection<T> collection, string paramName)
-        {
-            paramName.ThrowIfNullOrEmpty(nameof(paramName));
-            collection.ThrowIfNull(paramName);
-
-            if (!collection.Any())
-            {
-                throw new InvalidOperationException($"You should not pass empty collection: {paramName}");
-            }
-        }
-
-        public static void ThrowIfNullOrEmpty<T>(this ICollection<T> collection, string paramName)
-        {
-            (collection?.ToArray()).ThrowIfNullOrEmpty(paramName);
-        }
-
         public static bool NullOrEmpty(this string @string)
         {
             return string.IsNullOrEmpty(@string?.Trim());
@@ -68,11 +52,6 @@ namespace Utils.Helpers
             {
                 throw new ArgumentNullException(paramName: paramName);
             }
-        }
-
-        public static bool IsDefaultValue(this double @double)
-        {
-            return Math.Abs(@double - default(double)) < 0.01;
         }
     }
 }

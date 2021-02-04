@@ -24,10 +24,5 @@ namespace Models.Base
         {
             UpdatedAt = now;
         }
-
-        public bool New()
-        {
-            return Id == default;
-        }
     }
 }
