@@ -1,8 +1,8 @@
 ﻿using System;
 using Utils.Enums;
-using Utils.Exceptions;
 using Models.Shapes;
 using Services.Calculators.Base;
+using Utils.Helpers;
 
 namespace Services.Calculators
 {
@@ -15,6 +15,10 @@ namespace Services.Calculators
         private readonly double z;
         public TriangleArea(Shape shape)
         {
+            shape.X.ThrowIfNull(nameof(shape.X));
+            shape.Y.ThrowIfNull(nameof(shape.Y));
+            shape.Z.ThrowIfNull(nameof(shape.Z));
+
             if (shape.Type == ShapeType.Triangle)
             {
                 x = shape.X.Value;
@@ -23,7 +27,7 @@ namespace Services.Calculators
             }
             else
             {
-                throw new BadRequestException();
+                throw new ArgumentException($"Shape type is not Triangle.");
             }
         }
 

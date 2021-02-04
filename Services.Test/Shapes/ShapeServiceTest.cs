@@ -49,7 +49,7 @@ namespace Services.Test
             await using var context = new SqliteContext();
             var target = new ShapeService(context);
 
-            var rectangle = new ShapeDto
+            var request = new ShapeDto
             {
                 Type = type,
                 RadiusEnabled = enable,
@@ -58,7 +58,7 @@ namespace Services.Test
                 Z = z,
                 Radius = radius
             };
-            var shapeId = await target.CreateAsync(rectangle);
+            var shapeId = await target.CreateAsync(request);
 
             var area = await target.GetAreaByIdAsync(shapeId);
 

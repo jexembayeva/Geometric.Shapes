@@ -41,7 +41,7 @@ namespace Services.Dtos
                     return new Shape(X.Value, Y.Value, Z.Value);
 
                 default:
-                    throw new BadRequestException();
+                    throw new BadRequestException("Shape type is not valid");
 
             };
         }

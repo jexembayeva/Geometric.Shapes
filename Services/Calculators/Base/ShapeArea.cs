@@ -1,6 +1,6 @@
 ﻿using Models.Shapes;
+using System;
 using Utils.Enums;
-using Utils.Exceptions;
 
 namespace Services.Calculators.Base
 {
@@ -21,7 +21,7 @@ namespace Services.Calculators.Base
                 case ShapeType.Circle:
                     return new CircleArea(_shape).Area();
                 default:
-                    throw new BadRequestException();
+                    throw new ArgumentException();
 
             }
         }

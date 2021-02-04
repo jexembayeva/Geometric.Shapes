@@ -1,8 +1,8 @@
 ﻿using System;
 using Utils.Enums;
-using Utils.Exceptions;
 using Models.Shapes;
 using Services.Calculators.Base;
+using Utils.Helpers;
 
 namespace Services.Calculators
 {
@@ -13,11 +13,13 @@ namespace Services.Calculators
         {
             if (shape.Type == ShapeType.Circle)
             {
+                shape.Radius.ThrowIfNull(nameof(shape.Radius));
+
                 radius = shape.Radius.Value;
             }
             else
             {
-                throw new BadRequestException();
+                throw new ArgumentException($"Shape type is not Circle.");
             }
         }
 
