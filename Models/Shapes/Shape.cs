@@ -26,17 +26,17 @@ namespace Models.Shapes
         }
 
         [NotDefaultValue]
-        public ShapeType Type { get; set; }
+        public ShapeType Type { get; protected set; }
 
-        public double? Radius { get; set; }
-
-        [NotDefaultValue]
-        public double? X { get; set; }
+        public double? Radius { get; protected set; }
 
         [NotDefaultValue]
-        public double? Y { get; set; }
+        public double? X { get; protected set; }
 
         [NotDefaultValue]
-        public double? Z { get; set; }
+        public double? Y { get; protected set; }
+
+        [NotDefaultValue]
+        public double? Z { get; protected set; }
     }
 }
